@@ -1,0 +1,29 @@
+{
+  "name": "a-mail-delivery-robot-project",
+  "version": "1.0.0",
+  "description": "This folder contents the my TypeScript implementation and improvements of a mail-delivery robot from Eloquent JavaScript book.",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zvolcsey/eloqeunt-javascript-projects.git"
+  },
+  "keywords": [
+    "learning",
+    "projects",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Zoltán Völcsey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zvolcsey/eloqeunt-javascript-projects/issues"
+  },
+  "homepage": "https://github.com/zvolcsey/eloqeunt-javascript-projects#readme",
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  }
+}

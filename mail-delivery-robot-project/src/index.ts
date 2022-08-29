@@ -1,3 +1,5 @@
+import { VillageState } from './VillageState';
+
 const roads: string[] = [
   "Alice's House-Bob's House",
   "Alice's House-Cabin",
@@ -34,4 +36,22 @@ function buildGraph(edges: string[]) {
   return graph;
 }
 
-console.log(buildGraph(roads));
+export const roadGraph = buildGraph(roads);
+
+let first = new VillageState('Post Office', [
+  { place: 'Post Office', address: "Alice's House" },
+]);
+
+let next = first.move("Alice's House");
+
+console.log(first.place);
+// -> Post Office
+
+console.log(first.parcels);
+// -> [{ place: 'Post Office', address: "Alice's House" }]
+
+console.log(next.place);
+// -> Alice's House
+
+console.log(next.parcels);
+// -> []

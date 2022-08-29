@@ -1,4 +1,4 @@
-import { roadGraph } from './index';
+import { roadGraph } from './roads';
 import { Parcel } from './types/types';
 
 export class VillageState {

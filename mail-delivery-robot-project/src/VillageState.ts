@@ -14,7 +14,7 @@ export class VillageState {
     if (!roadGraph[this.place].includes(destination)) {
       return this;
     } else {
-      let parcels = this.parcels
+      const parcels = this.parcels
         .map((p) => {
           // Place of the parcle is not change
           if (p.place != this.place) return p;
@@ -27,9 +27,9 @@ export class VillageState {
   }
 
   random(parcelsCount: number) {
-    let parcels = [];
+    const parcels = [];
     for (let i = 0; i < parcelsCount; i++) {
-      let address = randomPick(Object.keys(roadGraph));
+      const address = randomPick(Object.keys(roadGraph));
       let place;
       do {
         place = randomPick(Object.keys(roadGraph));

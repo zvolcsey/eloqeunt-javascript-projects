@@ -1,6 +1,6 @@
 // TODO: Graph's type
 export function buildGraph(edges: string[]) {
-  let graph = Object.create(null);
+  const graph = Object.create(null);
 
   function addEdge(from: string, to: string) {
     if (graph[from] == null) {
@@ -10,7 +10,7 @@ export function buildGraph(edges: string[]) {
     }
   }
 
-  for (let [from, to] of edges.map((r) => r.split('-'))) {
+  for (const [from, to] of edges.map((r) => r.split('-'))) {
     addEdge(from, to);
     addEdge(to, from);
   }
@@ -21,6 +21,6 @@ export function buildGraph(edges: string[]) {
 // The other solution could be crypto.randomInt(0, array.length).
 // It is more secure, but slower. https://stackoverflow.com/a/69273612
 export function randomPick(array: string[]) {
-  let choice = Math.floor(Math.random() * array.length);
+  const choice = Math.floor(Math.random() * array.length);
   return array[choice];
 }

@@ -11,7 +11,7 @@ export function runRobot(state: VillageState, robot: Robot, memory: string[]) {
       console.log(`Done in ${turn} turns`);
       break;
     }
-    let action = robot(state, memory);
+    const action = robot(state, memory);
     state = state.move(action.direction);
     memory = action.memory;
     console.log(`Moved to ${action.direction}`);

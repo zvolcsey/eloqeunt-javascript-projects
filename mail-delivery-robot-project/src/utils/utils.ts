@@ -1,3 +1,5 @@
+import crypto from 'crypto';
+
 // TODO: Graph's type
 export function buildGraph(edges: string[]) {
   const graph = Object.create(null);
@@ -18,9 +20,8 @@ export function buildGraph(edges: string[]) {
   return graph;
 }
 
-// The other solution could be crypto.randomInt(0, array.length).
-// It is more secure, but slower. https://stackoverflow.com/a/69273612
+// Avoids modulo bias
 export function randomPick(array: string[]) {
-  const choice = Math.floor(Math.random() * array.length);
+  const choice = crypto.randomInt(0, array.length);
   return array[choice];
 }

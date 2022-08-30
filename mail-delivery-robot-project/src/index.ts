@@ -1,6 +1,9 @@
-import { randomRobot, runRobot } from './robot';
+import { randomRobot, routeRobot, runRobot } from './robot';
+import { mailRoutes } from './routes';
 import { VillageState } from './VillageState';
 
 let village = new VillageState('Post Office', []);
+let villageWithMails = village.random(5);
 
-runRobot(village.random(5), randomRobot);
+runRobot(villageWithMails, randomRobot, []);
+runRobot(villageWithMails, routeRobot, mailRoutes);

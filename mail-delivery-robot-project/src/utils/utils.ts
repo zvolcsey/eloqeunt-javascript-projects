@@ -17,3 +17,10 @@ export function buildGraph(edges: string[]) {
 
   return graph;
 }
+
+// The other solution could be crypto.randomInt(0, array.length).
+// It is more secure, but slower. https://stackoverflow.com/a/69273612
+export function randomPick(array: string[]) {
+  let choice = Math.floor(Math.random() * array.length);
+  return array[choice];
+}

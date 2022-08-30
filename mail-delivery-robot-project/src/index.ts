@@ -1,19 +1,6 @@
+import { randomRobot, runRobot } from './robot';
 import { VillageState } from './VillageState';
 
-let first = new VillageState('Post Office', [
-  { place: 'Post Office', address: "Alice's House" },
-]);
+let village = new VillageState('Post Office', []);
 
-let next = first.move("Alice's House");
-
-console.log(first.place);
-// -> Post Office
-
-console.log(first.parcels);
-// -> [{ place: 'Post Office', address: "Alice's House" }]
-
-console.log(next.place);
-// -> Alice's House
-
-console.log(next.parcels);
-// -> []
+runRobot(village.random(5), randomRobot);

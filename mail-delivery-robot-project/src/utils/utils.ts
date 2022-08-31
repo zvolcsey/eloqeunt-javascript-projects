@@ -1,8 +1,10 @@
 import crypto from 'crypto';
 
+import type { RoadGraph } from '../types/types';
+
 // TODO: Graph's type
 export function buildGraph(edges: string[]) {
-  const graph = Object.create(null);
+  const graph: RoadGraph = Object.create(null);
 
   function addEdge(from: string, to: string) {
     if (graph[from] == null) {

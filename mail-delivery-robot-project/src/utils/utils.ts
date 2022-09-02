@@ -2,7 +2,6 @@ import crypto from 'crypto';
 
 import type { RoadGraph } from '../types/types';
 
-// TODO: Graph's type
 export function buildGraph(edges: string[]) {
   const graph: RoadGraph = Object.create(null);
 
@@ -26,4 +25,14 @@ export function buildGraph(edges: string[]) {
 export function randomPick(array: string[]) {
   const choice = crypto.randomInt(0, array.length);
   return array[choice];
+}
+
+export function average(array: number[]) {
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+  const initialValue = 0;
+  const sumWithInitial = array.reduce(
+    (prevValue, currentValue) => prevValue + currentValue,
+    initialValue
+  );
+  return Math.ceil(sumWithInitial / array.length);
 }

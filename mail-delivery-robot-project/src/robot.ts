@@ -3,19 +3,23 @@ import { VillageState } from './VillageState';
 import { randomPick } from './utils/utils';
 import { findRoute, mailRoutes } from './routes';
 
-import type { Action, Locations, Robot } from './types/types';
+import type { Action, Locations, Robot, RunResult } from './types/types';
 
-export function runRobot(state: VillageState, robot: Robot, memory: string[]) {
-  for (let turn = 0; ; turn++) {
-    if (state.parcels.length == 0) {
-      console.log(`Done in ${turn} turns`);
-      break;
-    }
+export function runRobot(
+  state: VillageState,
+  robot: Robot,
+  memory: string[]
+): RunResult {
+  let turn = 0;
+  const directions: string[] = [];
+  while (state.parcels.length > 0) {
     const action = robot(state, memory);
     state = state.move(action.direction);
     memory = action.memory;
-    console.log(`Moved to ${action.direction}`);
+    directions.push(action.direction);
+    turn++;
   }
+  return { turn, directions };
 }
 
 // The dumbest strategy, if the robot walk in a random direction every turn.

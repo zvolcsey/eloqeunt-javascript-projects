@@ -1,15 +1,7 @@
-import { goalOrientedRobot, randomRobot, routeRobot, runRobot } from './robot';
-import { mailRoutes } from './routes';
-import { VillageState } from './VillageState';
+import { compareRobots } from './measure/compare';
+import { logCompareResult } from './utils/logs';
+import { goalOrientedRobot, routeRobot } from './robot';
 
-const village = new VillageState('Post Office', []);
-const villageWithMails = village.random(5);
-
-console.log('\nRandom robot:');
-runRobot(villageWithMails, randomRobot, []);
-console.log('\nRoute robot:');
-console.log(villageWithMails.parcels);
-runRobot(villageWithMails, routeRobot, mailRoutes);
-console.log('\nGoal-Oriented Robot robot:');
-console.log(villageWithMails.parcels);
-runRobot(villageWithMails, goalOrientedRobot, []);
+// Each robot will solve 100 tasks.
+const result = compareRobots(routeRobot, [], goalOrientedRobot, []);
+logCompareResult(result);
